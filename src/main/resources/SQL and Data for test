@@ -1,0 +1,33 @@
+-- SQL FOR CREATE TABLES --
+CREATE TABLE Person (
+                        id UUID PRIMARY KEY,
+                        first_name VARCHAR(255) NOT NULL,
+                        first_second VARCHAR(255) NOT NULL,
+                        email VARCHAR(255) NOT NULL,
+                        age INT NOT NULL CHECK (age >= 0)
+);
+
+CREATE TABLE Passport (
+                          id serial PRIMARY KEY,
+                          person_id uuid references person(id),
+                          series VARCHAR(4) NOT NULL,
+                          number VARCHAR(6) NOT NULL,
+                          department VARCHAR(255)
+);
+
+
+-- JSON FILE FOR TEST --
+
+{
+        "id": "147a68b3-9953-3f4d-9b64-9783498e8a84",
+        "firstName": "Misha",
+        "secondName": "Pavlov",
+        "email": "test.test@example.com",
+        "age": 22,
+        "passportData": {
+            "series": "WXYZ",
+            "number": "987654",
+            "department": "New Department",
+            "personId": null
+        }
+    }
