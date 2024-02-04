@@ -30,4 +30,4 @@ CREATE TABLE Passport (
             "department": "New Department",
             "personId": null
         }
-    }
+}

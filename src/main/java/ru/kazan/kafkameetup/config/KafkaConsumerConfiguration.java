@@ -24,12 +24,9 @@ public class KafkaConsumerConfiguration {
         properties.put(ConsumerConfig.GROUP_ID_CONFIG, "other_service");
         properties.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
         properties.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
-        properties.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, ErrorHandlingDeserializer.class);
-
         properties.put(ErrorHandlingDeserializer.VALUE_DESERIALIZER_CLASS, JsonDeserializer.class.getName());
         properties.put(JsonDeserializer.TRUSTED_PACKAGES, "*");
 
-        properties.put(ConsumerConfig.MAX_POLL_INTERVAL_MS_CONFIG, 30000);
 
         return new DefaultKafkaConsumerFactory<>(properties,
                 new StringDeserializer(),

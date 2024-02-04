@@ -45,4 +45,3 @@ spring:
             value:
               trusted:
                 packages: "*"
-        max.poll.interval.ms: 30000
